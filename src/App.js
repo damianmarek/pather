@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MapContainer from './containers/MapContainer'
 
 class App extends Component {
   render() {
@@ -10,9 +11,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Pather</h2>
         </div>
-        <p className="App-intro">
-          Pathfinding app
-        </p>
+        <div className='App-body'>
+          <p className="App-intro">
+            Pathfinding app
+          </p>
+          <MapContainer class/>
+        </div>
       </div>
     );
   }
