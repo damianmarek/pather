@@ -1,5 +1,5 @@
 import axios from 'axios'
-import path from './path'
+import route from './route'
 
 const instance = axios.create({
   baseURL: 'http://46.101.104.85:5000/route/v1/driving/',
@@ -7,5 +7,5 @@ const instance = axios.create({
 })
 
 export default {
-  path: path(instance),
+  route: route(instance),
 }

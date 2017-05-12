@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles/MapContainer.css'
 import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
-import api from '../service/pathApi/api'
+import api from '../service/routeApi/api'
 import UpdateableGeoJSON from '../components/UpdateableGeoJSON'
 
 const position = [52.2297, 21.0122];
@@ -26,7 +26,7 @@ class MapContainer extends React.Component {
 
   componentDidMount = async () => {
     //const res = await api.path.getPath([52.198720, 20.977803], [52.295018, 21.004727])
-    const res = await api.path.getPath(this.state.startPoint, this.state.endPoint)
+    const res = await api.route.getPath(this.state.startPoint, this.state.endPoint)
     console.log(res)
     this.setState({ path: res.data.routes[0].geometry})
   }
@@ -45,13 +45,13 @@ class MapContainer extends React.Component {
 
   handleContextMenu = async (e) => {
     this.setState({ endPoint: [e.latlng.lat, e.latlng.lng]})
-    const res = await api.path.getPath(this.state.startPoint, this.state.endPoint)
+    const res = await api.route.getPath(this.state.startPoint, this.state.endPoint)
     this.setState({ path: res.data.routes[0].geometry})
   }
 
   handleClick = async (e) => {
     this.setState({ startPoint: [e.latlng.lat, e.latlng.lng]})
-    const res = await api.path.getPath(this.state.startPoint, this.state.endPoint)
+    const res = await api.route.getPath(this.state.startPoint, this.state.endPoint)
     this.setState({ path: res.data.routes[0].geometry})
   }
 

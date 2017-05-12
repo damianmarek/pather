@@ -1,0 +1,13 @@
+const route = (instance) => {
+  const getPath = (startPoint, endPoint) => {
+    return (
+      instance.get(`/${startPoint[1]},${startPoint[0]};${endPoint[1]},${endPoint[0]}?geometries=geojson&overview=full`)
+    )
+  }
+
+  return {
+    getPath,
+  }
+}
+
+export default route
