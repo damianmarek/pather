@@ -1,7 +1,7 @@
 const route = (instance) => {
   const getPath = (startPoint, endPoint) => {
     return (
-      instance.get(`/${startPoint[1]},${startPoint[0]};${endPoint[1]},${endPoint[0]}?geometries=geojson&overview=full`)
+      instance.get(`/${startPoint[1]},${startPoint[0]};${endPoint[1]},${endPoint[0]}?geometries=geojson`)
     )
   }
 

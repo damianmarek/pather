@@ -1,8 +1,8 @@
 import { fork, all } from 'redux-saga/effects'
-import * as pathSaga from './pathSaga'
+import * as routeSaga from './routeSaga'
 
 export default function * root() {
   yield all([
-    fork(pathSaga.watchFetchPath)
+    fork(routeSaga.watchFetchPath)
   ])
 }

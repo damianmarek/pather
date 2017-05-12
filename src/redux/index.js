@@ -3,11 +3,9 @@ import configureStore from './createStore'
 import rootSaga from '../saga'
 
 export default (history) => {
-  // const rootReducer = combineReducers({
-  //
-  // })
-
-  const rootReducer = state => state
+  const rootReducer = combineReducers({
+    route: require('./routeRedux').reducer
+  })
 
   return configureStore(rootReducer, rootSaga, history)
 }
