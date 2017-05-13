@@ -1,9 +1,10 @@
 import React from 'react'
 import './styles/MapContainer.css'
 import { connect } from 'react-redux'
-import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
-import api from '../service/routeApi/api'
+import { Map, TileLayer } from 'react-leaflet';
+import Control from 'react-leaflet-control';
 import UpdateableGeoJSON from '../components/UpdateableGeoJSON'
+import RouteInfo from '../components/RouteInfo'
 import RouteActions from '../redux/routeRedux'
 
 const position = [52.2297, 21.0122];
@@ -25,6 +26,9 @@ class MapContainer extends React.Component {
         url='http://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
+      <Control position="topleft" >
+        <RouteInfo startPoint={this.props.route.startPoint} endPoint={this.props.route.endPoint} />
+      </Control>
       {this.renderGeo()}
     </Map>
   )
